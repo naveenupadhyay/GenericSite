@@ -1,3 +1,15 @@
+
+span.lightbox-handle.sqs-system-button.sqs-editable-button {
+    background-color: #02a8f3;
+    padding: 20px 30px;
+    border-radius: 4px;
+}
+
+#footer {
+    width: 100%;
+    background-color: #333;
+    position: relative;
+}
 /* cyrillic */
 @font-face {
   font-family: 'Oswald';
