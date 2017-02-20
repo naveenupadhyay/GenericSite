@@ -35,253 +35,7 @@
     })(SQUARESPACE_ROLLUPS, 'squarespace-common');
     */
   </script>
-  </script>
-  <script type="text/javascript" data-sqs-type="imageloader">
-  /*
-    (function() {
-      var EXCLUDED_SIZES = function() {
-          var a = window.location.search,
-            b = a.indexOf("exclude_imageloader_sizes=");
-          return -1 < b && (a = a.substr(b + 26).split("&")[0]) ? a.split(",").map(function(a) {
-            return parseInt(a, 10)
-          }) : []
-        }(),
-        SQUARESPACE_SIZES = [2500, 1500, 1E3, 750, 500, 300, 100].filter(function(a) {
-          return -1 === EXCLUDED_SIZES.indexOf(a)
-        }),
-        IMAGE_LOADING_CLASS = "loading",
-        ImageLoader = new function() {
-          this.load = function(a, b) {
-            function d(a, b, c) {
-              var d = new Image;
-              d.onload = b;
-              d.onerror = c;
-              d.src = a
-            }
-            a.getDOMNode && (a = a.getDOMNode());
-            var c = this._getDataFromNode(a,
-                b),
-              e = !(!c.dimensions || !c.dimensions.width || !c.dimensions.height),
-              g = c.load + "";
-            if ("false" === g) return !1;
-            var h = c.mode;
-            if (e && ("fit" === h || "fill" === h)) {
-              h = a.parentNode;
-              if (!h) return console.error("Not doing anything, parentNode not found."), !1;
-              if (!this.refresh(a, b, h)) return !1
-            }
-            var n = this._intendToLoad(a, c);
-            if ("string" === typeof n && "viewport" !== g) {
-              var m = this.getUrl(n, c),
-                g = a.getAttribute("data-image-resolution");
-              a.getAttribute("src") !== m && this.isValidResolution(n, g) && (a.onload = function() {
-                a.className = a.className.replace(IMAGE_LOADING_CLASS,
-                  " ").trim();
-                a.setAttribute("data-image-resolution", n)
-              }, !a.getAttribute("src") && -1 === a.className.indexOf(IMAGE_LOADING_CLASS) && (a.className += (a.className ? " " : "") + IMAGE_LOADING_CLASS), !a.getAttribute("src") && e ? (a.setAttribute("src", m), c.useBgImage && (a.parentNode.style.backgroundImage = "url(" + m + ")")) : d(m, function() {
-                e ? a.setAttribute("src", m) : (a.setAttribute("data-image-dimensions", this.width + "x" + this.height), ImageLoader.load(a, b))
-              }, function() {
-                a.className = a.className.replace(IMAGE_LOADING_CLASS, " ").trim();
-                a.setAttribute("src", m)
-              }));
-              return !0
-            }
-            return n
-          };
-          this.refresh = function(a, b, d) {
-            a.getDOMNode && (a = a.getDOMNode());
-            d && d.getDOMNode && (d = d.getDOMNode());
-            d = d || a.parentNode;
-            if (!d) return console.error("Not doing anything, parentNode not found."), !1;
-            var c = this._getDataFromNode(a, b),
-              e = d.offsetWidth,
-              g = d.offsetHeight;
-            b = c.mode;
-            if ("none" !== b) {
-              var h = c.dimensions.width,
-                n = c.dimensions.height,
-                m = h / n,
-                q = e / g;
-              if (c.useBgImage && "fill" === b && "backgroundSize" in document.documentElement.style) return a.style.display = "none", d.style.backgroundSize =
-                "cover", d.style.backgroundPosition = 100 * c.focalPoint.x + "% " + 100 * c.focalPoint.y + "%", !0;
-              if (c.fixedRatio) "fill" == b && q > m || "fit" == b && q < m ? (k = 100, l = 100 * (q / m), r = (100 - l) * c.focalPoint.y, p = 0) : (k = 100 * (m / q), l = 100, r = 0, p = (100 - k) * c.focalPoint.x), a.style.top = r + "%", a.style.left = p + "%", a.style.width = k + "%", a.style.height = l + "%";
-              else {
-                var f;
-                "fill" === b ? f = m > q ? g / n : e / h : "fit" === b && (f = m < q ? g / n : e / h);
-                !c.stretch && "fit" == b && 1 < f && (f = 1);
-                var k = Math.ceil(h * f),
-                  l = Math.ceil(n * f);
-                if (0 === k || 0 === l) return !1;
-                var p, r;
-                "fill" === b ? (p = Math.min(Math.max(e /
-                  2 - k * c.focalPoint.x, e - k), 0), r = Math.min(Math.max(g / 2 - l * c.focalPoint.y, g - l), 0)) : "fit" === b && (f = c.fitAlignment, p = f.left ? 0 : f.right ? e - k : k < e ? (e - k) / 2 : 0, r = f.top ? 0 : f.bottom ? g - l : l < g ? (g - l) / 2 : 0, "inline" == this._getStyle(a, "display") && (a.style.fontSize = "0px"), this._resetAlt(a, function() {
-                  k -= a.offsetHeight - a.clientHeight;
-                  l -= a.offsetWidth - a.clientWidth
-                }));
-                a.style.top = Math.ceil(r) + "px";
-                a.style.left = Math.ceil(p) + "px";
-                a.style.width = Math.ceil(k) + "px";
-                a.style.height = Math.ceil(l) + "px"
-              }
-              p = this._getStyle(d, "position");
-              a.style.position =
-                "relative" == p ? "absolute" : "relative";
-              if ("fill" == b && (b = this._getStyle(d, "overflow"), !b || "hidden" != b)) d.style.overflow = "hidden";
-              return !0
-            }
-          };
-          this._intendToLoad = function(a, b) {
-            function d(c, d) {
-              "none" === b.mode && (a.style.width = null, a.style.height = null);
-              var e = parseFloat(a.getAttribute(c)),
-                f = parseFloat(e);
-              if (!f || isNaN(f)) e = h._getStyle(a, c), f = parseFloat(e);
-              if (!f || isNaN(f)) e = h._getStyle(a, "max-" + c, "max" + (c.substr(0, 1).toUpperCase() + c.substr(1))), f = parseFloat(e);
-              if (0 === d || e) switch (h._stringType(e)) {
-                case "percentage":
-                  d =
-                    parseInt(e, 10) / 100 * g["offset" + c.substr(0, 1).toUpperCase() + c.substr(1)];
-                  break;
-                case "number":
-                  d = parseInt(e, 10)
-              }!f && 0 !== d && !a.getAttribute("src") && (d = 0);
-              return d
-            }
-            b = b || this._getDataFromNode(a);
-            if (!b.source) return !1;
-            var c = a.offsetWidth,
-              e = a.offsetHeight,
-              g = a.parentNode,
-              h = this;
-            this._resetAlt(a, function() {
-              c = d("width", c);
-              e = d("height", e)
-            });
-            0 === c && 0 === e ? (c = b.dimensions.width, e = b.dimensions.height) : 0 === c ? c = this.getDimensionForValue("width", e, b) : 0 === e && (e = this.getDimensionForValue("height", c, b));
-            "viewport" === b.load &&
-              (a.style.width = Math.floor(c) + "px", a.style.height = Math.floor(e) + "px");
-            return this.getSquarespaceSize(c, e, b)
-          };
-          this._getDataFromNode = function(a, b) {
-            b = b || {};
-            var d = {
-              focalPoint: {
-                x: 0.5,
-                y: 0.5
-              },
-              dimensions: {
-                width: null,
-                height: null
-              },
-              mode: "none",
-              fitAlignment: {
-                center: !0
-              },
-              load: "true",
-              stretch: !0,
-              fixedRatio: !1
-            };
-            if (b.focalPoint) d.focalPoint = b.focalPoint;
-            else {
-              var c = a.getAttribute("data-image-focal-point");
-              if (c && (c = c.split(",")) && 2 == c.length) d.focalPoint = {
-                x: parseFloat(c[0]),
-                y: parseFloat(c[1])
-              }
-            }
-            if (b.dimensions) d.dimensions =
-              b.dimensions;
-            else if ((c = a.getAttribute("data-image-dimensions")) && (c = c.split("x")) && 2 == c.length) d.dimensions = {
-              width: parseInt(c[0], 10),
-              height: parseInt(c[1], 10)
-            };
-            b.mode ? d.mode = b.mode : a.parentNode && (c = a.parentNode.className, -1 !== c.indexOf("content-fill") ? d.mode = "fill" : -1 !== c.indexOf("content-fit") && (d.mode = "fit"));
-            if ("fit" === d.mode && a.parentNode && (c = b.fitAlignment || a.getAttribute("data-alignment") || a.parentNode.getAttribute("data-alignment"))) d.fitAlignment = {
-              top: -1 !== c.indexOf("top"),
-              left: -1 !== c.indexOf("left"),
-              center: -1 !== c.indexOf("center"),
-              right: -1 !== c.indexOf("right"),
-              bottom: -1 !== c.indexOf("bottom")
-            };
-            b.load ? d.load = b.load : (c = a.getAttribute("data-load")) && (d.load = c);
-            if ("undefined" !== typeof b.stretch) d.stretch = b.stretch;
-            else if (c = a.getAttribute("data-image-stretch")) d.stretch = "true" === c ? !0 : !1;
-            d.source = b.source ? b.source : a.getAttribute("data-src");
-            d.source && this.isSquarespaceUrl(d.source) && ("http:" === d.source.substr(0, 5) && "https" === window.location.protocol.substr(0, 5)) && (d.source = d.source.replace("http://",
-              "https://"));
-            if (b.fixedRatio) d.fixedRatio = b.fixedRatio;
-            else if (c = a.getAttribute("data-fixed-ratio")) d.fixedRatio = "true" == c;
-            b.useBgImage ? d.useBgImage = b.useBgImage : (c = a.getAttribute("data-use-bg-image"), d.useBgImage = "true" === c || !0 === c ? !0 : !1);
-            return d
-          };
-          this._stringType = function(a) {
-            return "string" === typeof a && -1 !== a.indexOf("%") ? "percentage" : isNaN(parseInt(a, 10)) ? NaN : "number"
-          };
-          this._getStyle = function(a, b, d) {
-            var c;
-            a.currentStyle ? c = a.currentStyle[d || b] : window.getComputedStyle && (c = document.defaultView.getComputedStyle(a,
-              null).getPropertyValue(b));
-            return c
-          };
-          this._isVisible = function(a) {
-            a = a.getBoundingClientRect();
-            return 0 <= a.left && 0 <= a.top || 0 <= a.bottom && 0 <= a.right || 0 <= a.left && 0 <= a.bottom || 0 <= a.right && 0 <= a.top
-          };
-          this.getSquarespaceSize = function(a, b, d) {
-            a = Math.max(b / (d.dimensions.height / d.dimensions.width), a);
-            "undefined" === typeof app && "number" === typeof window.devicePixelRatio && (a *= window.devicePixelRatio);
-            for (b = 1; b < SQUARESPACE_SIZES.length && !(a > SQUARESPACE_SIZES[b]); b++);
-            return SQUARESPACE_SIZES[b - 1] + "w"
-          };
-          this.getDimensionForValue =
-            function(a, b, d) {
-              var c = d.dimensions.width;
-              d = d.dimensions.height;
-              return "width" == a ? c / d * b : "height" == a ? d / c * b : NaN
-            };
-          this.getUrl = function(a, b) {
-            var d = b.source;
-            return a && ("/" == d[0] || this.isSquarespaceUrl(d)) ? (-1 === d.indexOf("format=" + a) && (d = d + (-1 !== d.indexOf("?") ? "&" : "?") + "format=" + a), d) : b.source
-          };
-          this.isSquarespaceUrl = function(a) {
-            return -1 !== a.indexOf("squarespace.com") || -1 !== a.indexOf("squarespace.net") || -1 !== a.indexOf("sqsp.net")
-          };
-          this.isValidResolution = function(a, b) {
-            a = parseInt(a, 10);
-            b = parseInt(b, 10);
-            return isNaN(a) ||
-              isNaN(b) ? !0 : a > b
-          };
-          this._resetAlt = function(a, b) {
-            var d = a.getAttribute("alt"),
-              c = d && 0 < d.length && !a.getAttribute("src");
-            if (c) {
-              var e = a.style.display;
-              a.removeAttribute("alt");
-              a.style.display = "none";
-              a.offsetHeight + 0;
-              a.style.display = e
-            }
-            b.call(this);
-            c && a.setAttribute("alt", d)
-          };
-          this.bootstrap = function() {
-            var a = document.images;
-            if (0 < a.length)
-              for (var b = 0, d = a.length; b < d; b++)((a[b].hasAttribute ? a[b].hasAttribute("data-image") : a[b].attributes["data-image"]) || (a[b].hasAttribute ? a[b].hasAttribute("data-src") : a[b].attributes["data-src"])) &&
-                "false" !== (a[b].getAttribute ? a[b].getAttribute("data-load") : a[b].attributes["data-load"]) + "" && ImageLoader.load(a[b])
-          }
-        };
-      window.ImageLoader = ImageLoader;
-      window.YUI && YUI.add("squarespace-imageloader", function(a) {}, "1.0", {
-        requires: []
-      });
-    })();*/
-  </script>
-  <script type="text/javascript">
-    //SquarespaceFonts.loadViaContext();
-    //Squarespace.load(window);
-  </script>
+  
   <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://www.crossover.com/homepage?format=RSS">
   <script type="application/ld+json">
     {
@@ -355,7 +109,7 @@
             <div id="yui_3_17_2_1_1486621986754_1094" class="sqs-announcement-bar-content">
               <a class="sqs-announcement-bar-url" href="https://www.crossover.com/ca-java"></a>
               <div class="sqs-announcement-bar-text">
-                <p ng-bind="data.message"></p>
+                <p ng-bind="data.message">dsd</p>
                 <span class="sqs-announcement-bar-close"></span>
               </div>
             </div>
@@ -518,13 +272,14 @@
           <div class="image-container content-fill has-background-video" data-url-id="index" data-content-field="main-image" id="yui_3_17_2_1_1486621986754_631" style="height: 595px; transform: translate3d(0px, 0px, 0px);">
 
 
-            <div class="sqs-video-background content-fill" sqs-controller="VideoBackground" data-config-url="https://www.youtube.com/watch?v=YfvwBYvj2g8" data-config-playback-speed="1" data-config-filter="3" data-config-filter-strength="75" style="transform: translateY(0px) translateZ(0px); filter: brightness(0.775);">
+            <div class="sqs-video-background content-fill" sqs-controller="VideoBackground" data-config-url="https://www.youtube.com/watch?v=YfvwBYvj2g8sds" data-config-playback-speed="1" data-config-filter="3" data-config-filter-strength="75" style="transform: translateY(0px) translateZ(0px); filter: brightness(0.775);">
 
               <img data-src="./images/iStock_000049039082XXXLarge.jpg" data-image="./images/iStock_000049039082XXXLarge.jpg" data-image-dimensions="2500x1640" data-image-focal-point="0.5,0.5" class="custom-fallback-image loaded" alt="iStock_000049039082XXXLarge.jpg"
                 src="./images/iStock_000049039082XXXLarge.jpg" style="top: -145px; left: 0px; width: 1349px; height: 885px; position: relative;" data-image-resolution="1500w">
 
 
-              <iframe id="player" frameborder="0" allowfullscreen="1" title="YouTube video player" width="560" height="315" src="./Crossover_files/YfvwBYvj2g8.html" class="background-video ready" style="width: 1349px; height: 758.813px; left: 0px; top: -81.9063px;"></iframe>
+             <iframe id="player" frameborder="0" allowfullscreen="1" title="YouTube video player" width="560" height="315" src="./Crossover_files/YfvwBYvj2g8.html" class="background-video ready" style="width: 1349px; height: 758.813px; left: 0px; top: -81.9063px;"></iframe>
+             
 
             </div>
 
@@ -557,7 +312,7 @@
                 <img data-src=./images/iStock_000049039082XXXLarge.jpg " data-image="./images/iStock_000049039082XXXLarge.jpg " data-image-dimensions="2500x1640 " data-image-focal-point="0.5,0.5 " alt="iStock_000049039082XXXLarge.jpg " class="custom-fallback-image ">
     
 
-    <iframe id="player " frameborder="0 " allowfullscreen="1 " title="YouTube video player " width="560 " height="315 " src="./Crossover_files/YfvwBYvj2g8(1).html " class="background-video ready " style="width: 0px; height: 0px; left: 0px; top: 0px; "></iframe>
+    <!-- <iframe id="player " frameborder="0 " allowfullscreen="1 " title="YouTube video player " width="560 " height="315 " src="./Crossover_files/YfvwBYvj2g8(1).html " class="background-video ready " style="width: 0px; height: 0px; left: 0px; top: 0px; "></iframe>-->
 
   </div>
 
@@ -748,8 +503,8 @@
     
       
         <div class="sqs-gallery-controls show-hover-effect ">
-          <a href="https://www.crossover.com/# " class="previous "></a>
-          <a href="https://www.crossover.com/# " class="next "></a>
+          <a href="#" class="previous "></a>
+          <a href="#" class="next "></a>
         </div>
       
     
