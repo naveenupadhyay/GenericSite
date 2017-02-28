@@ -87,11 +87,7 @@ span.lightbox-handle.sqs-system-button.sqs-editable-button {
 }
 
 .talents_showcase.for-home {
-    position: absolute;
-    z-index: 100;
-    margin: 0 auto;
-    text-align: center;
-    padding-bottom: 0;
+    
 }
 
 .talents_showcase.for-home .talents_showcase-item {
@@ -357,7 +353,7 @@ span.lightbox-handle.sqs-system-button.sqs-editable-button {
 
 .talents_showcase.for-home {
     position: absolute;
-    top: -200px;
+    top: -230px;
     z-index: 9000;
     margin: 0 auto;
     text-align: center;
@@ -365,7 +361,7 @@ span.lightbox-handle.sqs-system-button.sqs-editable-button {
 }
 
 .sqs-announcement-bar-dropzone .title-nav-wrapper{
-  padding-bottom: 200px;
+  padding-bottom: 300px;
 }
 
 @media only screen and (max-width: 768px){
@@ -403,6 +399,14 @@ a.talents_showcase-item:nth-child(n+6) {
   a.talents_showcase-item:nth-child(n+3) {
       display: none !important;
   }
+}
+
+.talent-title{
+    margin-top: -275px;
+    z-index: 9000;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
 }
 
 /* Talents Showcase - End*/
