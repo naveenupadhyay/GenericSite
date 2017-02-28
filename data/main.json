@@ -1,6 +1,6 @@
 {
 	"message" : "New Message Hello",
-	"mainLogo1":"./images/1ssoulution-logo.png ",
+	"mainLogo1":"./images/upwork-logo.svg ",
 	"logo1":"./images/Unknown-1.png",
 	"logo2":"./images/Unknown-2.png",
 	"logo3":"./images/Unknown-3.png",
@@ -18,6 +18,8 @@
 	"navItem7":"navItem7",
 	"navItem8":"ExtLink",
 	"mainBtn1":"mainBtn1",
+	
+	"showcaseTitle":"Our Top Experts" ,
 	
 	"expert1Name":"Kelly Sickles",
 	"expert1Expertise":"Fundraising Expert",
