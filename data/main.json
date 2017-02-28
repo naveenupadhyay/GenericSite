@@ -18,6 +18,27 @@
 	"navItem7":"navItem7",
 	"navItem8":"ExtLink",
 	"mainBtn1":"mainBtn1",
+	
+	"expert1Name":"Kelly Sickles",
+	"expert1Expertise":"Fundraising Expert",
+	"expert1ImgUrl":"https://assets.toptal.io/assets/front/static/public/blocks/home/showcase/featured/kelly_sickles_small_eb4657.jpg",
+	
+	"expert2Name":"Charles Cook, Ph.D.",
+	"expert2Expertise":"C# Developer",
+	"expert2ImgUrl":"https://assets.toptal.io/assets/front/static/public/blocks/home/showcase/featured/charles_cook_small_a6984e.jpg",
+	
+	"expert3Name":"April Leone",
+	"expert3Expertise":"JavaScript Developer",
+	"expert3ImgUrl":"https://assets.toptal.io/assets/front/static/public/blocks/home/showcase/featured/april_leone_small_023968.jpg",
+	
+	"expert4Name":"Ruaridh Currie",
+	"expert4Expertise":"UX/UI Designer",
+	"expert4ImgUrl":"https://assets.toptal.io/assets/front/static/public/blocks/home/showcase/featured/ruaridh_currie_small_2990fd.jpg",
+	
+	"expert5Name":"Darin Sleiter",
+	"expert5Expertise":"Python Developer",
+	"expert5ImgUrl":"https://assets.toptal.io/assets/front/static/public/blocks/home/showcase/featured/darin_sleiter_small_df8e34.jpg",
+	
 	"parallaxImgTitle":"Parallax Img title1",
 	"parallaxImgSubTitle":"Parallax Img Subtitle 1",
 	"title1":"Our Customers",
