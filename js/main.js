@@ -7,10 +7,15 @@ function MainController($scope,$http) {
     $http.get('data/main.json').then(function(data) {
         console.log(data.data);
         $scope.data = data.data;
+        init();
     },
     function(error){
         console.log(error);
     });
+    
+   function init(){
+       $scope.activeArrows = $scope.data.testimonialImg1.length > 0 ? true : false;
+   }
     
     $scope.previousTestimonialClick = function(){
         event.preventDefault();
