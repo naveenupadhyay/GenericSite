@@ -436,7 +436,7 @@
             <div class="slide content-fill sqs-gallery-design-stacked-slide loaded sqs-active-slide " data-type="image " data-click-through-url=" " id="yui_3_17_2_1_1486621986754_434 " style="opacity: 1; overflow: hidden; z-index: 889; ">
               
                 <noscript>&lt;img src="./images/Testimonial_1.png "  alt="Testimonial_1.png "  /&gt;</noscript>
-                <img class="thumb-image loaded "  style="top: 0px; left: 0px; width: 960px; height: 660px; position: relative; "  ng-src="{{data.testimonialImg1}} " />
+                <img class="thumb-image loaded testimonial-image "  style="top: 0px; left: 0px; width: 960px; height: 660px; position: relative; "  ng-src="{{data.testimonialImg1[0]}} " />
               
 
               
@@ -533,8 +533,8 @@
     
       
         <div class="sqs-gallery-controls show-hover-effect ">
-          <a href="#" class="previous "></a>
-          <a href="#" class="next "></a>
+          <a href="#" class="previous " ng-click="previousTestimonialClick()"></a>
+          <a href="#" class="next " ng-click="nextTestimonialClick()"></a>
         </div>
       
     

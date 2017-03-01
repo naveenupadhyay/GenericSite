@@ -44,7 +44,7 @@
 	"parallaxImgTitle":"Parallax Img title1",
 	"parallaxImgSubTitle":"Parallax Img Subtitle 1",
 	"title1":"Our Customers",
-	"testimonialImg1":"images/Testimonial_1.png",
+	"testimonialImg1":["images/Testimonial_1.png", "images/Testimonial_2.png", "images/Testimonial_3.png", "images/Testimonial_4.png"],
 	"title2":"People",
 	"artboard1":"images/Artboard+1.png",
 	"title2Caption":"Screening talent by simply using resumes and interviews is outdated. We develop comprehensive tests for every role to ensure our teams consist of only the best of the best. The key to any successful sports team is to have the best players from anywhere around the world—business teams are no different.",
