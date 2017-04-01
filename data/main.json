@@ -77,7 +77,9 @@
 	"footerTitle4":"footertile4",
 	"footerTitle4Link1":"ft4l1",
 	"footerTitle4Link2":"ft4l2",
-	"footerCopyRightText":"© Crossover, 2017. Privacy policy."
+	"footerCopyRightText":"© Crossover, 2017. Privacy policy.",
+
+	"successMessage":"We will call you soon!"
 
 
 }

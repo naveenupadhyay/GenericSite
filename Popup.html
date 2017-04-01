@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+	<div ng-show="showSuccessMessage=='false'">
+		<div class="modal-header">
+			<h3 class="modal-title">Please Enter your Details</h3>
+		</div>
+		<div class="modal-body">
+			<form>
+			<input type="text" name="contactName" placeholder="Name"/><br>
+			<input type="text" name="contactNumber" placeholder="Number"/><br>
+			<input type="email" name="contactEmail" placeholder="Email"/><br>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-warning" type="button" ng-click="close()">Submit</button>
+		</div>
+	</div>
+	<div ng-show="showSuccessMessage=='true'">
+		<div class="modal-header">
+			<h3 class="modal-title">{{data.successMessage}}</h3>
+		</div>
+	</div>
+</body>
+</html>

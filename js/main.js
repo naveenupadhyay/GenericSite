@@ -1,9 +1,9 @@
-var mainModule = angular.module('mainModule', []);
+var mainModule = angular.module('mainModule', ['ui.bootstrap']);
 
 
 mainModule.controller('MainController', MainController);
 
-function MainController($scope,$http) {
+function MainController($scope,$http,$modal) {
     $http.get('data/main.json').then(function(data) {
         console.log(data.data);
         $scope.data = data.data;
@@ -29,5 +29,31 @@ function MainController($scope,$http) {
         var splicedImg = $scope.data.testimonialImg1.splice(0,1);
         $scope.data.testimonialImg1.push(splicedImg[0]);
     }
+
+    $scope.open = function () {
+        console.log('opening pop up');
+        var modalInstance = $modal.open({
+            templateUrl: 'Popup.html',
+            controller: 'PopupCont',
+        });
+    }
     
+};
+
+angular.module('mainModule').controller('PopupCont', PopupController);
+
+function PopupController($scope,$http,$modalInstance) {
+    $http.get('data/main.json').then(function(data) {
+        $scope.data = data.data;
+    },
+    function(error){
+        console.log(error);
+    });
+
+    $scope.showSuccessMessage = "false";
+    $scope.close = function () {
+        console.log('submitting and closing form!');
+        $scope.showSuccessMessage = "true";
+        // $modalInstance.dismiss('cancel');
+    };
 };
