@@ -51,8 +51,17 @@ function PopupController($scope,$http,$modalInstance) {
     });
 
     $scope.showSuccessMessage = "false";
+    $scope.formSubmissionMessage = "";
     $scope.close = function () {
-        console.log('submitting and closing form!');
+        url = "http://localhost:8090/create?email=" + $scope.form.email + "&name=" + $scope.form.name + "&phone=" + $scope.form.phone
+        $http.get(url).then(function(data) {
+            console.log(data);
+            $scope.formSubmissionMessage = data.successMessage;
+        },
+        function(error){
+            console.log(error);
+            $scope.formSubmissionMessage = data.failureMessage;
+        });
         $scope.showSuccessMessage = "true";
         // $modalInstance.dismiss('cancel');
     };

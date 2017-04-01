@@ -7,10 +7,9 @@
 			<h3 class="modal-title">Please Enter your Details</h3>
 		</div>
 		<div class="modal-body">
-			<form>
-			<input type="text" name="contactName" placeholder="Name"/><br>
-			<input type="text" name="contactNumber" placeholder="Number"/><br>
-			<input type="email" name="contactEmail" placeholder="Email"/><br>
+			<input type="text" name="contactName" placeholder="Name" ng-model="form.name"/><br>
+			<input type="text" name="contactNumber" placeholder="Number" ng-model="form.phone"/><br>
+			<input type="email" name="contactEmail" placeholder="Email" ng-model="form.email"/><br>
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-warning" type="button" ng-click="close()">Submit</button>
@@ -18,7 +17,7 @@
 	</div>
 	<div ng-show="showSuccessMessage=='true'">
 		<div class="modal-header">
-			<h3 class="modal-title">{{data.successMessage}}</h3>
+			<h3 class="modal-title">{{data.formSubmissionMessage}}</h3>
 		</div>
 	</div>
 </body>
