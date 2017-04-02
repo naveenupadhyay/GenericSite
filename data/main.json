@@ -80,7 +80,8 @@
 	"footerCopyRightText":"© Crossover, 2017. Privacy policy.",
 
 	"successMessage":"We will call you soon!",
-	"failureMessage":"Sorry some error occured!"
+	"networkFailureMessage":"Sorry some error occured.",
+	"validationFailureMessage":"Please enter valid details."
 
 
 }
