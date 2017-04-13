@@ -59,7 +59,7 @@ function PopupController($scope,$http,$modalInstance) {
         {
             $http({
                 method: 'GET',
-                url: encodeURI("http://localhost:8090/create?email=" + $scope.form.email + "&name=" + $scope.form.fname + " " + $scope.form.lname  + "&phone=" + $scope.form.phone),
+                url: encodeURI("http://52.66.8.132:8090/create?email=" + $scope.form.email + "&name=" + $scope.form.fname + " " + $scope.form.lname  + "&phone=" + $scope.form.phone),
                 data: {},
                 transformResponse: function (data, headersGetter, status) {
                     return {data: data};
