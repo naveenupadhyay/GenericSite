@@ -33,7 +33,7 @@ function MainController($scope,$http,$modal) {
     $scope.open = function () {
         console.log('opening pop up');
         var modalInstance = $modal.open({
-            templateUrl: 'Popup.html',
+            templateUrl: 'popup.html',
             controller: 'PopupCont',
         });
     }
