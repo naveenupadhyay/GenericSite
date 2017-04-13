@@ -1,5 +1,5 @@
 {
-	"message" : "New Message Hello",
+	"message" : "Classes start first week of May Contact # 9845012345",
 	"mainLogo1":"./images/upwork-logo.svg ",
 	"logo1":"./images/Unknown-1.png",
 	"logo2":"./images/Unknown-2.png",
@@ -9,40 +9,34 @@
 	"logo6":"./images/Unknown-6.png",
 	"logo7":"./images/Unknown-7.png",
 	"logo8":"./images/Unknown-8.png",
-	"navItem1":"navItem1",
-	"navItem2":"navItem2",
-	"navItem3":"navItem3",
-	"navItem4":"navItem4",
-	"navItem5":"navItem5",
-	"navItem6":"navItem6",
-	"navItem7":"navItem7",
-	"navItem8":"ExtLink",
-	"mainBtn1":"mainBtn1",
+	"navItem1":"Campus Connect",
+	
+	"mainBtn1":"HELP ME!",
 	
 	"showcaseTitle":"Our Top Experts" ,
 	
-	"expert1Name":"Kelly Sickles",
+	"expert1Name":"Expert 1",
 	"expert1Expertise":"Fundraising Expert",
 	"expert1ImgUrl":"https://assets.toptal.io/assets/front/static/public/blocks/home/showcase/featured/kelly_sickles_small_eb4657.jpg",
 	
-	"expert2Name":"Charles Cook, Ph.D.",
+	"expert2Name":"Expert 2",
 	"expert2Expertise":"C# Developer",
 	"expert2ImgUrl":"https://assets.toptal.io/assets/front/static/public/blocks/home/showcase/featured/charles_cook_small_a6984e.jpg",
 	
-	"expert3Name":"April Leone",
+	"expert3Name":"Expert 3",
 	"expert3Expertise":"JavaScript Developer",
 	"expert3ImgUrl":"https://assets.toptal.io/assets/front/static/public/blocks/home/showcase/featured/april_leone_small_023968.jpg",
 	
-	"expert4Name":"Ruaridh Currie",
+	"expert4Name":"Expert 4",
 	"expert4Expertise":"UX/UI Designer",
 	"expert4ImgUrl":"https://assets.toptal.io/assets/front/static/public/blocks/home/showcase/featured/ruaridh_currie_small_2990fd.jpg",
 	
-	"expert5Name":"Darin Sleiter",
+	"expert5Name":"Expert 5",
 	"expert5Expertise":"Python Developer",
 	"expert5ImgUrl":"https://assets.toptal.io/assets/front/static/public/blocks/home/showcase/featured/darin_sleiter_small_df8e34.jpg",
 	
-	"parallaxImgTitle":"Parallax Img title1",
-	"parallaxImgSubTitle":"Parallax Img Subtitle 1",
+	"parallaxImgTitle":"Join our Platform",
+	"parallaxImgSubTitle":"Be an Expert",
 	"title1":"Our Customers",
 	"testimonialImg1":["images/Testimonial_1.png", "images/Testimonial_2.png", "images/Testimonial_3.png", "images/Testimonial_4.png"],
 	"title2":"People",
@@ -77,7 +71,7 @@
 	"footerTitle4":"footertile4",
 	"footerTitle4Link1":"ft4l1",
 	"footerTitle4Link2":"ft4l2",
-	"footerCopyRightText":"© Crossover, 2017. Privacy policy.",
+	"footerCopyRightText":"© RocketPrep.in, 2017. Privacy policy.",
 
 	"successMessage":"We will call you soon!",
 	"networkFailureMessage":"Sorry some error occured.",
